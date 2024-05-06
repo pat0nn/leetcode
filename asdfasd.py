@@ -10,7 +10,6 @@ def visualize(height):
     plt.title('Trapping Rain Water Problem')
     plt.twinx()
     plt.ylabel('Water Trapped')
-    plt.grid()
     plt.legend(loc='upper left')
     plt.show()
 

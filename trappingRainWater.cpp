@@ -14,12 +14,10 @@ int trap(std::vector<int>& height) {
     std::vector<std::vector<int>> blocks;
     int result = 0;
 
-    // Finding the first non-decreasing wall from the left
     while (first_wall < n - 1 && height[first_wall] <= height[first_wall + 1]) {
         first_wall++;
     }
 
-    // Finding the first non-decreasing wall from the right
     while (last_wall > 0 && height[last_wall] <= height[last_wall - 1]) {
         last_wall--;
     }
@@ -34,6 +32,7 @@ int trap(std::vector<int>& height) {
             temp_block.push_back(height[temp_wall]);
             temp_wall++;
         }
+        
 
 
         first_wall = temp_wall;
@@ -94,7 +93,6 @@ int trap2(std::vector<int>& height) {
         last_wall--;
     }
 
-    // Giữa hai tường không giảm, tính lượng nước
     while (first_wall < last_wall) {
         int temp_wall = first_wall + 1;
 
@@ -134,27 +132,28 @@ int trap3(std::vector<int>& height) {
         return 0;
 
     int left = 0, right = height.size() - 1;
-    int left_max = 0, right_max = 0;
+    int max_left = 0, max_right = 0;
     int water = 0;
 
-    while (left < right) {
-        if (height[left] < height[right]) {
-            if (height[left] >= left_max) {
-                left_max = height[left];
-            } else {
-                water += left_max - height[left];
+    while(left < right){
+        if(height[left] < height[right]){
+            if(height[left] >= max_left){
+                max_left = height[left];
+            }else {
+                water += max_left - height[left];
             }
             left++;
-        } else {
-            if (height[right] >= right_max) {
-                right_max = height[right];
-            } else {
-                water += right_max - height[right];
+        }
+        else{
+            if(height[right] >= max_right){
+                max_right = height[right];
+            }else{
+                water+= max_right - height[right];
             }
             right--;
+
         }
     }
-
     return water;
 }
 
