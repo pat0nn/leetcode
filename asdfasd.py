@@ -5,15 +5,9 @@ def visualize(height):
     
     n = len(height)
     plt.bar(range(n), height, color='blue', alpha=0.6, label='Height of Columns')
-    plt.xlabel('Index')
-    plt.ylabel('Height')
-    plt.title('Trapping Rain Water Problem')
-    plt.twinx()
-    plt.ylabel('Water Trapped')
-    plt.legend(loc='upper left')
     plt.show()
 
 # Example usage
-height = [0,1,0,2,1,0,1,3,2,1,2,1]
+height = [4,3,5,5,9,2,8,4,7,2,3,8,3,5,4,7,9]
 
 visualize(height)

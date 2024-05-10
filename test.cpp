@@ -5,8 +5,6 @@
 using namespace std;
 
 int main() {
-    string expression = "1+2";
-    stringstream ss(expression); // Sử dụng stringstream để đọc từ chuỗi
-    
-    
+    vector<vector<int, int>,int> arr;
+
 }
